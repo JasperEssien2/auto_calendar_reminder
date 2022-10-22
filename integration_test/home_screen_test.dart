@@ -1,9 +1,5 @@
 import 'package:auto_calendar_reminder/domain/domain_export.dart';
-import 'package:auto_calendar_reminder/ext.dart';
 import 'package:auto_calendar_reminder/presentation/add_option_screen.dart';
-import 'package:auto_calendar_reminder/presentation/data_controllers.dart';
-import 'package:auto_calendar_reminder/presentation/home_screen.dart';
-import 'package:auto_calendar_reminder/presentation/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -16,51 +12,51 @@ class HomeScreenTestCases {
   final MockAppRepository repository;
 
   Future<void> testProvidersInjected(WidgetTester tester) async {
-
     //TODO 1: Mock repository.getEventOptions()
-    _doWhenGetEventOptionsCalled(data: []);
 
     //TODO 2: Pump App widget
-    await TestUtils.pumpApp(tester, repository: repository);
 
     //TODO 3: Expect AppProviders found in widget tree
-    expect(find.byType(AppProvider<ActionsDataController>), findsOneWidget);
-    expect(find.byType(AppProvider<AppDataController>), findsOneWidget);
   }
 
   Future<void> testLoadingState(WidgetTester tester) async {
-    _doWhenGetEventOptionsCalled(data: []);
+    //TODO 1: Mock repository.getEventOptions() to do nothing
 
-    await TestUtils.pumpApp(tester, repository: repository);
+    //TODO 2: Pump App widget
 
-    final dataController =
-        tester.state(find.byType(HomeScreen)).context.appDataController;
+    //TODO 3: Find HomeScreen state to access AppDataController
 
-    dataController.state = UIState<EventOptionList>(data: [], loading: true);
+    //TODO 4: Set state to loading state
 
-    await tester.pump(const Duration(milliseconds: 100));
+    //TODO 5: Trigger a frame rebuild after a certain duration
 
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    expect(find.text("No events found"), findsNothing);
-    expect(find.byType(ListView), findsNothing);
-    expect(find.byType(MaterialBanner), findsNothing);
+    //TODO 6: Expect CircularProgressIndicator is found
 
-    verify(() => repository.getEventOptions());
+    //TODO 7: Expect error widget is not found
+
+    //TODO 8: Expect ListView is not found
+
+    //TODO 9: Expect MaterialBanner is not found
+
+    //TODO 10: Verify that repository.getEventOptons() was called
   }
 
   Future<void> testErrorState(WidgetTester tester) async {
-    _doWhenGetEventOptionsCalled(error: true);
+    //TODO 1: Mock repository.getEventOptions() to return an error
 
-    await TestUtils.pumpApp(tester, repository: repository);
+    //TODO 2: Pump App widget
+ 
+    //TODO 3: Expect MaterialBanner found
 
-    expect(find.byType(MaterialBanner), findsOneWidget);
-    expect(find.text("An error occurred"), findsOneWidget);
+    //TODO 4: Expect error text found
 
-    expect(find.byType(CircularProgressIndicator), findsNothing);
-    expect(find.text("No events found"), findsNothing);
-    expect(find.byType(ListView), findsNothing);
+    //TODO 5: Expect CircularProgressIndicator is not found
 
-    verify(() => repository.getEventOptions());
+    //TODO 6: Expect error text is not found
+
+    //TODO 7: Expect ListView is not found
+
+    //TODO 8: Verify that repository.getEventOptions() was called
   }
 
   Future<void> testEmptyState(WidgetTester tester) async {
