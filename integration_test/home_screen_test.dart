@@ -26,7 +26,6 @@ class HomeScreenTestCases {
     //TODO 3: Expect AppProviders found in widget tree
     expect(find.byType(AppProvider<ActionsDataController>), findsOneWidget);
     expect(find.byType(AppProvider<AppDataController>), findsOneWidget);
-    expect(find.text("Events Options"), findsOneWidget);
   }
 
   Future<void> testLoadingState(WidgetTester tester) async {
