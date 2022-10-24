@@ -1,7 +1,6 @@
 import 'package:auto_calendar_reminder/data/fake_app_repository_impl.dart';
 import 'package:auto_calendar_reminder/presentation/data_controllers.dart';
 import 'package:auto_calendar_reminder/presentation/provider.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'test_util.dart';
@@ -36,24 +35,12 @@ class HomeScreenTestCases {
 
   Future<void> testMaterialBannerDismissedOnCancelPressed(
       WidgetTester tester) async {
-    /// Instruct repository to throw error
-    repository.throwGetError = true;
-
-    /// Pump app widget
-    await TestUtils.pumpApp(tester, repository: repository);
-
-    expect(find.byType(MaterialBanner), findsOneWidget);
-
-    await tester.tap(find.byIcon(Icons.close));
-
-    await tester.pumpAndSettle();
-
-    //
-    expect(find.byType(MaterialBanner), findsNothing);
-    expect(find.text("An error occurred"), findsNothing);
+    //TODO: write test code to validate material banner is dismissed when close icon tapped
   }
 
   Future<void> testFABPressed(WidgetTester tester) async {}
 
-  Future<void> testOnItemDraggedDelete(WidgetTester tester) async {}
+  Future<void> testOnItemDraggedDelete(WidgetTester tester) async {
+    //TODO: write test code to validate that widget is removed from widget tree when a drag occurrs
+  }
 }
