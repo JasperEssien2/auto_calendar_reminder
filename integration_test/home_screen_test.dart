@@ -1,9 +1,5 @@
 import 'package:auto_calendar_reminder/data/fake_app_repository_impl.dart';
-import 'package:auto_calendar_reminder/domain/domain_export.dart';
-import 'package:auto_calendar_reminder/ext.dart';
-import 'package:auto_calendar_reminder/presentation/add_option_screen.dart';
 import 'package:auto_calendar_reminder/presentation/data_controllers.dart';
-import 'package:auto_calendar_reminder/presentation/home_screen.dart';
 import 'package:auto_calendar_reminder/presentation/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -39,7 +35,24 @@ class HomeScreenTestCases {
   }
 
   Future<void> testMaterialBannerDismissedOnCancelPressed(
-      WidgetTester tester) async {}
+      WidgetTester tester) async {
+    /// Instruct repository to throw error
+    repository.throwGetError = true;
+
+    /// Pump app widget
+    await TestUtils.pumpApp(tester, repository: repository);
+
+    
+
+    /// Find close icon widget, and perform a tap on the widget
+    await tester.tap(find.byIcon(Icons.close));
+
+    await tester.pumpAndSettle();
+
+    //
+    expect(find.byType(MaterialBanner), findsNothing);
+    expect(find.text("An error occurred"), findsNothing);
+  }
 
   Future<void> testFABPressed(WidgetTester tester) async {}
 
