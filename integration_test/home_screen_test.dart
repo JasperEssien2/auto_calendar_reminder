@@ -17,15 +17,21 @@ class HomeScreenTestCases {
     expect(find.byType(AppProvider<AppDataController>), findsOneWidget);
   }
 
-  Future<void> testLoadingState(WidgetTester tester) async {}
-
-  Future<void> testErrorState(WidgetTester tester) async {
-    repository.throwGetError = true;
+  Future<void> testLoadingState(WidgetTester tester) async {
+    //TODO: write test code for loading state
   }
 
-  Future<void> testEmptyState(WidgetTester tester) async {}
+  Future<void> testErrorState(WidgetTester tester) async {
+    //TODO: write test code for error state
+  }
 
-  Future<void> testDataLoadedState(WidgetTester tester) async {}
+  Future<void> testEmptyState(WidgetTester tester) async {
+    //TODO: write test code for empty state
+  }
+
+  Future<void> testDataLoadedState(WidgetTester tester) async {
+    //TODO: write test code to validate loaded state
+  }
 
   Future<void> testMaterialBannerDismissedOnCancelPressed(
       WidgetTester tester) async {}
