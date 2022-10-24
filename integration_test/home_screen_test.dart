@@ -42,9 +42,8 @@ class HomeScreenTestCases {
     /// Pump app widget
     await TestUtils.pumpApp(tester, repository: repository);
 
-    
+    expect(find.byType(MaterialBanner), findsOneWidget);
 
-    /// Find close icon widget, and perform a tap on the widget
     await tester.tap(find.byIcon(Icons.close));
 
     await tester.pumpAndSettle();
