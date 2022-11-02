@@ -38,7 +38,9 @@ class HomeScreenTestCases {
     //TODO: write test code to validate material banner is dismissed when close icon tapped
   }
 
-  Future<void> testFABPressed(WidgetTester tester) async {}
+  Future<void> testFABPressed(WidgetTester tester) async {
+    //TODO: write test code to validate app navigates to add option screen
+  }
 
   Future<void> testOnItemDraggedDelete(WidgetTester tester) async {
     //TODO: write test code to validate that widget is removed from widget tree when a drag occurrs

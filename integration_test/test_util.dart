@@ -54,6 +54,7 @@ class TestNavigatorObserver extends NavigatorObserver {
     if (onPopped != null) {
       onPopped!(route, previousRoute);
     }
+
   }
 }
 
