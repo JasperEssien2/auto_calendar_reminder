@@ -13,58 +13,12 @@ class CreateOptionScreenTestCases {
   final AppRepository repository;
 
   Future<void> testDatePicker(WidgetTester tester) async {
-    List<Route> navigatorEntries = [];
-
-    TestNavigatorObserver navigatorObserver = TestNavigatorObserver()
-      ..onPushed = (route, _) {
-        navigatorEntries.add(route);
-      };
-
-    await TestUtils.pumpApp(
-      tester,
-      repository: repository,
-      navigateToScreen2: true,
-      observer: navigatorObserver,
-    );
-
-    await tester.tap(find.byKey(const ValueKey('dateField')));
-
-    await tester.pumpAndSettle();
-
-    final context = tester.state(find.byType(CreateOptionScreen)).context;
-
-    if (Theme.of(context).platform == TargetPlatform.android) {
-      expect(navigatorEntries.last.runtimeType, DialogRoute<DateTime>);
-    } else if (Theme.of(context).platform == TargetPlatform.iOS) {
-      expect(navigatorEntries.last.runtimeType, CupertinoModalPopupRoute<void>);
-    }
+   //TODO: Write test cases for date picker
   }
 
   Future<void> testButtonState(WidgetTester tester) async {
-    await TestUtils.pumpApp(
-      tester,
-      repository: repository,
-      navigateToScreen2: true,
-    );
 
-    expect(appButtonFinder, findsAppButtonInDisabledState);
-
-    await _setTextField(tester, 'optionNameField', 'Coffee Break');
-
-    expect(appButtonFinder, findsAppButtonInDisabledState);
-
-    await _setTextField(tester, 'descriptionField', 'Remember to take breaks');
-
-    expect(appButtonFinder, findsAppButtonInDisabledState);
-
-    await _setTextField(tester, 'iconField',
-        'https://cdn-icons-png.flaticon.com/512/1792/1792931.png');
-
-    expect(appButtonFinder, findsAppButtonInDisabledState);
-
-    await _selectDateOnCalendar(tester);
-
-    expect(appButtonFinder, findsAppButtonInEnabledState);
+    //TODO: Write test cases for button state
   }
 
   Future<void> _setTextField(
