@@ -7,8 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'test_util.dart';
 
-class AddOptionScreenTestCases {
-  AddOptionScreenTestCases(this.repository);
+class CreateOptionScreenTestCases {
+  CreateOptionScreenTestCases(this.repository);
 
   final AppRepository repository;
 
@@ -69,7 +69,7 @@ class AddOptionScreenTestCases {
 
   Future<void> _setTextField(
       WidgetTester tester, String key, String text) async {
-    await tester.enterText(find.byKey(ValueKey(key)), text);
+    //TODO: use tester to input text in a textfield
   }
 
   Future<void> testScreenUIState(WidgetTester tester) async {
